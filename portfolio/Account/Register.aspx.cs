@@ -19,7 +19,6 @@ namespace portfolio.Account
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
             FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
-
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (String.IsNullOrEmpty(continueUrl))
             {
