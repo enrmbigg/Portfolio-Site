@@ -38,7 +38,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -58,18 +60,77 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Admin\Accesses\access_rules.aspx" />
+    <Content Include="Admin\Accesses\access_rule_summary.aspx" />
+    <Content Include="Admin\Accesses\active_users.aspx" />
+    <Content Include="Admin\Accesses\add_user.aspx" />
+    <Content Include="Admin\Accesses\edit_user.aspx" />
+    <Content Include="Admin\Accesses\locked_users.aspx" />
+    <Content Include="Admin\Accesses\online_users.aspx" />
+    <Content Include="Admin\Accesses\roles.aspx" />
+    <Content Include="Admin\Accesses\users.aspx" />
+    <Content Include="Admin\Accesses\users_by_role.aspx" />
+    <Content Include="Admin\Accesses\_nav.aspx" />
+    <Content Include="Admin\Accesses\_nav3.aspx" />
+    <Content Include="Admin\activity\site_activity.aspx" />
+    <Content Include="Admin\Blog_Add.aspx" />
+    <Content Include="Admin\Blog_Overview.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\User_Overview.aspx" />
     <Content Include="App_Data\ASPNETDB.MDF" />
     <Content Include="App_Data\ASPNETDB_log.ldf">
       <DependentUpon>ASPNETDB.MDF</DependentUpon>
     </Content>
     <Content Include="App_Data\BlogPosts.sdf" />
+    <Content Include="Blog\Default.aspx" />
+    <Content Include="Images\i\folder.gif" />
+    <Content Include="Images\i\greenlight.gif" />
+    <Content Include="Images\i\redlight.gif" />
+    <Content Include="Images\i\target.gif" />
+    <Content Include="Images\i\yellowlight.gif" />
     <Content Include="MembersOnly\MembersMenu.aspx" />
+    <Content Include="Styles\base-context-min.css" />
+    <Content Include="Styles\base-context.css" />
+    <Content Include="Styles\base-min.css" />
+    <Content Include="Styles\base.css" />
+    <Content Include="Styles\buttons-core-min.css" />
+    <Content Include="Styles\buttons-core.css" />
+    <Content Include="Styles\buttons-min.css" />
+    <Content Include="Styles\buttons.css" />
+    <Content Include="Styles\forms-min.css" />
+    <Content Include="Styles\forms-nr-min.css" />
+    <Content Include="Styles\forms-nr.css" />
+    <Content Include="Styles\forms.css" />
+    <Content Include="Styles\grids-core-min.css" />
+    <Content Include="Styles\grids-core.css" />
+    <Content Include="Styles\grids-min.css" />
+    <Content Include="Styles\grids-responsive-min.css" />
+    <Content Include="Styles\grids-responsive-old-ie-min.css" />
+    <Content Include="Styles\grids-responsive-old-ie.css" />
+    <Content Include="Styles\grids-responsive.css" />
+    <Content Include="Styles\grids-units-min.css" />
+    <Content Include="Styles\grids-units.css" />
+    <Content Include="Styles\grids.css" />
+    <Content Include="Styles\menus-core-min.css" />
+    <Content Include="Styles\menus-core.css" />
+    <Content Include="Styles\menus-min.css" />
+    <Content Include="Styles\menus-nr-min.css" />
+    <Content Include="Styles\menus-nr.css" />
+    <Content Include="Styles\menus-paginator-min.css" />
+    <Content Include="Styles\menus-paginator.css" />
+    <Content Include="Styles\menus.css" />
+    <Content Include="Styles\pure-min.css" />
+    <Content Include="Styles\pure-nr-min.css" />
+    <Content Include="Styles\pure-nr.css" />
+    <Content Include="Styles\pure.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\tables-min.css" />
+    <Content Include="Styles\tables.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -121,8 +182,43 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\Blog.cs" />
-    <Content Include="App_Code\ConnectionClass.cs" />
+    <Compile Include="Admin\Blog_Add.aspx.cs">
+      <DependentUpon>Blog_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Blog_Add.aspx.designer.cs">
+      <DependentUpon>Blog_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Blog_Overview.aspx.cs">
+      <DependentUpon>Blog_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Blog_Overview.aspx.designer.cs">
+      <DependentUpon>Blog_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\User_Overview.aspx.cs">
+      <DependentUpon>User_Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\User_Overview.aspx.designer.cs">
+      <DependentUpon>User_Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\BlogPosts.cs" />
+    <Compile Include="App_Code\ConnectionClass.cs" />
+    <Compile Include="Blog\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blog\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +228,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPageCMS.Master.cs">
+      <DependentUpon>MasterPageCMS.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPageCMS.Master.designer.cs">
+      <DependentUpon>MasterPageCMS.Master</DependentUpon>
     </Compile>
     <Compile Include="MembersOnly\MembersMenu.aspx.cs">
       <DependentUpon>MembersMenu.aspx</DependentUpon>
@@ -150,12 +253,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="Images\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPageCMS.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\i\Thumbs.db" />
+    <None Include="Styles\bower.json" />
+    <None Include="Styles\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

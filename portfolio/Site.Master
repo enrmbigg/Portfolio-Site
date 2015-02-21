@@ -36,6 +36,7 @@
                             <Items>
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
                                 <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                                <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
                             </Items>
                         </asp:Menu>
                     </AnonymousTemplate>
@@ -45,6 +46,7 @@
                             <Items>
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
                                 <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
+                                <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
                                 <asp:MenuItem NavigateUrl="~/MembersOnly/MembersMenu.aspx" Text="Members Only" 
                                     Value="Members Only"></asp:MenuItem>
                             </Items>
@@ -58,8 +60,11 @@
                                     <Items>
                                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
                                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
+                                        <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
                                         <asp:MenuItem NavigateUrl="~/MembersOnly/MembersMenu.aspx" Text="Members Only" 
                                             Value="Members Only"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Admin/Default.aspx" Text="Administrator" 
+                                            Value="Administrator"></asp:MenuItem>
                                     </Items>
                                 </asp:Menu>
                             </ContentTemplate>

@@ -2,4 +2,4 @@ C:\Users\Michael.Biggs\Documents\Visual Studio 2010\Projects\Portfolio\portfolio
 C:\Users\Michael.Biggs\Documents\Visual Studio 2010\Projects\Portfolio\portfolio\bin\portfolio.pdb
 C:\Users\Michael.Biggs\Documents\Visual Studio 2010\Projects\Portfolio\portfolio\obj\Debug\portfolio.dll
 C:\Users\Michael.Biggs\Documents\Visual Studio 2010\Projects\Portfolio\portfolio\obj\Debug\portfolio.pdb
-C:\Users\Michael.Biggs\Documents\Visual Studio 2010\Projects\Portfolio\portfolio\obj\Debug\portfolio.csprojResolveAssemblyReference.cache
+C:\Users\Michael.Biggs\Documents\Visual Studio 2010\Projects\Portfolio\portfolio\bin\System.Data.SqlServerCe.dll
