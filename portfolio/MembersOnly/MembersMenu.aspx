@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Members" Language="C#" AutoEventWireup="true" CodeBehind="MembersMenu.aspx.cs" MasterPageFile="~/Site.master" Inherits="portfolio.MembersOnly.MembersMenu" %>
+﻿<%@ Page Title="Members Menu" Language="C#" AutoEventWireup="true" CodeBehind="MembersMenu.aspx.cs" MasterPageFile="~/Site.master" Inherits="portfolio.MembersOnly.MembersMenu" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>

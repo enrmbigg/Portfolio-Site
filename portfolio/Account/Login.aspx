@@ -44,6 +44,8 @@
                     <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LoginUserValidationGroup"/>
                 </p>
             </div>
+            <p><asp:HyperLink ID="HyperLink1" NavigateUrl="~/Account/RecoverPassword.aspx" 
+                    runat="server">HyperLink</asp:HyperLink> </p>
         </LayoutTemplate>
     </asp:Login>
 </asp:Content>
