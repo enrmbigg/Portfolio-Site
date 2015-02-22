@@ -1,45 +1,20 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageCMS.Master" %>
-
-<script runat="server">
-	private void Page_PreRender()
-	{
-		MembershipUserCollection allUsers = Membership.GetAllUsers();
-		MembershipUserCollection filteredUsers = new MembershipUserCollection();
-		bool isActive;
-		if (active.SelectedValue == "Active")
-		{
-			isActive = true;
-		}
-		else
-		{
-			isActive = false;
-		}
-		foreach (MembershipUser user in allUsers)
-		{
-			if (user.IsApproved == isActive)
-			{
-				filteredUsers.Add(user);
-			}
-		}
-		Users.DataSource = filteredUsers;
-		Users.DataBind();
-	}
-</script>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageCMS.Master" AutoEventWireup="true" CodeBehind="Users_By_Role.aspx.cs" Inherits="portfolio.Admin.Access.Users_By_Role" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+    
 <table class="webparts">
 <tr>
-	<th>Active / Inactive Users</th>
+	<th>Users by Role</th>
 </tr>
 <tr>
 <td class="details" valign="top">
 
+Role filter:
 
-<asp:DropDownList runat="server" ID="active" AutoPostBack="true">
-<asp:ListItem>Active</asp:ListItem>
-<asp:ListItem>Inactive</asp:ListItem>
+<asp:DropDownList ID="UserRoles" runat="server" AppendDataBoundItems="true" AutoPostBack="true">
+<asp:ListItem>Show All</asp:ListItem>
 </asp:DropDownList>
 
 
@@ -67,10 +42,7 @@
 </Columns>
 </asp:GridView>
 
-</td>
-
-</tr></table>
-
+</td></tr></table>
 
 
 </asp:Content>

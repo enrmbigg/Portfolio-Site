@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace portfolio {
+namespace portfolio.Admin.Access {
     
     
-    public partial class About {
+    public partial class Active_Users {
         
         /// <summary>
-        /// lblHello control.
+        /// active control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHello;
+        protected global::System.Web.UI.WebControls.DropDownList active;
+        
+        /// <summary>
+        /// Users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Users;
     }
 }

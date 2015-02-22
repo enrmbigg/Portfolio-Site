@@ -1,63 +1,17 @@
-<%@ Page Language="C#" MasterPageFile="~/4guys.master" %>
-
-<script runat="server">
-	MembershipUser user;
-	
-	private void Page_Load()
-	{
-		if (IsPostBack)
-		{
-			try
-			{
-				AddUser();
-
-				Response.Redirect("users.aspx");
-			}
-			catch (Exception ex)
-			{
-				ConfirmationMessage.InnerText = "Insert Failure: " + ex.Message;
-			}
-		}
-	}
-
-	protected void AddUser()
-	{
-		// Add User.
-		MembershipUser newUser = Membership.CreateUser(username.Text, password.Text, email.Text);
-		newUser.Comment = comment.Text;
-		Membership.UpdateUser(newUser);
-		
-		// Add Roles.
-		foreach (ListItem rolebox in UserRoles.Items)
-		{
-			if (rolebox.Selected)
-			{
-				Roles.AddUserToRole(username.Text, rolebox.Text);
-			}
-		}
-	}
-
-	private void Page_PreRender()
-	{
-		UserRoles.DataSource = Roles.GetAllRoles();
-		UserRoles.DataBind();
-	}
-</script>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="c" Runat="Server">
-
-<!-- #include file="_nav.aspx -->
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageCMS.Master" AutoEventWireup="true" CodeBehind="Add_User.aspx.cs" Inherits="portfolio.Admin.Access.Add_User" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 <table class="webparts">
 <tr>
 	<th>Add User</th>
 </tr>
 <tr>
-<td class="details" valign="top">
+<td class="details">
 
 <h3>Roles:</h3>
-<asp:CheckBoxList ID="UserRoles" runat="server" />
-
+<asp:RadioButtonList ID="UserRoles" runat="server" />
 <h3>Main Info:</h3>
 
 <table>

@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace portfolio.Admin {
+namespace portfolio.Admin.Access {
     
     
-    public partial class Default {
+    public partial class Access_Rule_Summary {
         
         /// <summary>
-        /// UserOverview control.
+        /// UserRoles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink UserOverview;
+        protected global::System.Web.UI.WebControls.DropDownList UserRoles;
         
         /// <summary>
-        /// BlogOverview control.
+        /// UserList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink BlogOverview;
+        protected global::System.Web.UI.WebControls.DropDownList UserList;
+        
+        /// <summary>
+        /// FolderTree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TreeView FolderTree;
     }
 }

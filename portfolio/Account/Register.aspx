@@ -4,7 +4,8 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser">
+    <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" 
+        OnCreatedUser="RegisterUser_CreatedUser">
         <LayoutTemplate>
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
@@ -70,6 +71,26 @@
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
+<asp:CompleteWizardStep runat="server">
+    <ContentTemplate>
+        <table>
+            <tr>
+                <td align="center" colspan="2">
+                    Complete</td>
+            </tr>
+            <tr>
+                <td>
+                    Your account has been successfully created.</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="2">
+                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" 
+                        CommandName="Continue" Text="Continue" ValidationGroup="RegisterUser" />
+                </td>
+            </tr>
+        </table>
+    </ContentTemplate>
+            </asp:CompleteWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
 </asp:Content>

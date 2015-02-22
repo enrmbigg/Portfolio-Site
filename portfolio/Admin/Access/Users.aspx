@@ -1,14 +1,7 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageCMS.Master" %>
-
-<script runat="server">
-	private void Page_PreRender()
-	{
-		Users.DataSource = Membership.GetAllUsers();
-		Users.DataBind();
-	}
-</script>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageCMS.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="portfolio.Admin.Access.Users" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <table>
         <tr>
 	        <th>Users by Name</th>
@@ -16,7 +9,7 @@
         <tr>
             <td>
                 <br/>
-                <asp:GridView runat="server" ID="Users" AutoGenerateColumns="false">
+                <asp:GridView runat="server" ID="UsersList" AutoGenerateColumns="false">
                     <Columns>
 	                    <asp:TemplateField>
 		                    <HeaderTemplate>User Name</HeaderTemplate>

@@ -60,19 +60,17 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Admin\Accesses\access_rules.aspx" />
-    <Content Include="Admin\Accesses\access_rule_summary.aspx" />
-    <Content Include="Admin\Accesses\active_users.aspx" />
-    <Content Include="Admin\Accesses\add_user.aspx" />
-    <Content Include="Admin\Accesses\edit_user.aspx" />
-    <Content Include="Admin\Accesses\locked_users.aspx" />
-    <Content Include="Admin\Accesses\online_users.aspx" />
-    <Content Include="Admin\Accesses\roles.aspx" />
-    <Content Include="Admin\Accesses\users.aspx" />
-    <Content Include="Admin\Accesses\users_by_role.aspx" />
-    <Content Include="Admin\Accesses\_nav.aspx" />
-    <Content Include="Admin\Accesses\_nav3.aspx" />
-    <Content Include="Admin\activity\site_activity.aspx" />
+    <Content Include="Admin\Access\Access_Rules.aspx" />
+    <Content Include="Admin\Access\Access_Rule_Summary.aspx" />
+    <Content Include="Admin\Access\Active_Users.aspx" />
+    <Content Include="Admin\Access\Add_User.aspx" />
+    <Content Include="Admin\Access\Edit_User.aspx" />
+    <Content Include="Admin\Access\Locked_Users.aspx" />
+    <Content Include="Admin\Access\Online_Users.aspx" />
+    <Content Include="Admin\Access\Roles.aspx" />
+    <Content Include="Admin\Access\Users.aspx" />
+    <Content Include="Admin\Access\Users_By_Role.aspx" />
+    <Content Include="Admin\Activity\Site_Activity.aspx" />
     <Content Include="Admin\Blog_Add.aspx" />
     <Content Include="Admin\Blog_Overview.aspx" />
     <Content Include="Admin\Default.aspx" />
@@ -182,6 +180,83 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Access\Access_Rules.aspx.cs">
+      <DependentUpon>Access_Rules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Access_Rules.aspx.designer.cs">
+      <DependentUpon>Access_Rules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Access_Rule_Summary.aspx.cs">
+      <DependentUpon>Access_Rule_Summary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Access_Rule_Summary.aspx.designer.cs">
+      <DependentUpon>Access_Rule_Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Active_Users.aspx.cs">
+      <DependentUpon>Active_Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Active_Users.aspx.designer.cs">
+      <DependentUpon>Active_Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Add_User.aspx.cs">
+      <DependentUpon>Add_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Add_User.aspx.designer.cs">
+      <DependentUpon>Add_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Edit_User.aspx.cs">
+      <DependentUpon>Edit_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Edit_User.aspx.designer.cs">
+      <DependentUpon>Edit_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Locked_Users.aspx.cs">
+      <DependentUpon>Locked_Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Locked_Users.aspx.designer.cs">
+      <DependentUpon>Locked_Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Online_Users.aspx.cs">
+      <DependentUpon>Online_Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Online_Users.aspx.designer.cs">
+      <DependentUpon>Online_Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Access\Users_By_Role.aspx.cs">
+      <DependentUpon>Users_By_Role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Access\Users_By_Role.aspx.designer.cs">
+      <DependentUpon>Users_By_Role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Activity\Site_Activity.aspx.cs">
+      <DependentUpon>Site_Activity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Activity\Site_Activity.aspx.designer.cs">
+      <DependentUpon>Site_Activity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Blog_Add.aspx.cs">
       <DependentUpon>Blog_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -212,6 +287,7 @@
     </Compile>
     <Compile Include="App_Code\BlogPosts.cs" />
     <Compile Include="App_Code\ConnectionClass.cs" />
+    <Compile Include="App_Code\MessageStrings.cs" />
     <Compile Include="Blog\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,32 +1,15 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageCMS.Master" %>
-
-<script runat="server">
-	private void Page_PreRender()
-	{
-		MembershipUserCollection allUsers = Membership.GetAllUsers();
-		MembershipUserCollection filteredUsers = new MembershipUserCollection();
-		bool isLockedOut = true;
-		foreach (MembershipUser user in allUsers)
-		{
-			if (user.IsLockedOut == isLockedOut)
-			{
-				filteredUsers.Add(user);
-			}
-		}
-		Users.DataSource = filteredUsers;
-		Users.DataBind();
-	}
-</script>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageCMS.Master" AutoEventWireup="true" CodeBehind="Locked_Users.aspx.cs" Inherits="portfolio.Admin.Access.Locked_Users" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 <table class="webparts">
 <tr>
 	<th>Locked Out Users</th>
 </tr>
 <tr>
-<td class="details" valign="top">
-
+<td class="details">
+<asp:Label ID="lblResult" runat="server"></asp:Label>
 <br />
 <asp:GridView runat="server" ID="Users" AutoGenerateColumns="false"
 	CssClass="list" AlternatingRowStyle-CssClass="odd" GridLines="none"
