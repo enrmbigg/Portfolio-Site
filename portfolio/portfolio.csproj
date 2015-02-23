@@ -91,6 +91,7 @@
     <Content Include="Styles\base-context.css" />
     <Content Include="Styles\base-min.css" />
     <Content Include="Styles\base.css" />
+    <Content Include="Styles\blog.css" />
     <Content Include="Styles\buttons-core-min.css" />
     <Content Include="Styles\buttons-core.css" />
     <Content Include="Styles\buttons-min.css" />
@@ -305,13 +306,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MasterPageCMS.Master.cs">
-      <DependentUpon>MasterPageCMS.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterPageCMS.Master.designer.cs">
-      <DependentUpon>MasterPageCMS.Master</DependentUpon>
-    </Compile>
     <Compile Include="MembersOnly\MembersMenu.aspx.cs">
       <DependentUpon>MembersMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -334,9 +328,6 @@
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MasterPageCMS.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\i\Thumbs.db" />

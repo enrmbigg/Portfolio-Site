@@ -2,86 +2,96 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head runat="server">
-    <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    My Blog</h1>
+    <head runat="server">
+        <title></title>
+        <link href="~/Styles/pure.css" rel="stylesheet" type="text/css"/>
+        <link href="~/Styles/pure-min.css" rel="stylesheet" type="text/css"/>
+        <link href="~/Styles/blog.css" rel="stylesheet" type="text/css"/>
+        <link href="~/Styles/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+        <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
+    </head>
+    <body>
+        <form id="Form1" runat="server">
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-4">
+                <div class="header">
+                    
+                        <h1 class="brand-title">My Blog</h1>
+                        <h2 class="brand-tagline"></h2>
+                        <br/>
+                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                            <AnonymousTemplate>
+                                [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                                [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/>]
+                                <br/> &nbsp;
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                        <div class="pure-menu pure-menu-open">
+                            <asp:LoginView ID="LoginView1" runat="server">
+                                <AnonymousTemplate>
+                                    <asp:Menu ID="NavigationMenu" runat="server"
+                                                EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical">
+                                        <Items>
+                                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                                            <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
+                                        </Items>
+                                    </asp:Menu>
+                                </AnonymousTemplate>
+                                
+                                <LoggedInTemplate>
+                                    <asp:Menu ID="NavigationMenu" runat="server"
+                                                EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical">
+                                        <Items>
+                                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                                            <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
+                                            <asp:MenuItem NavigateUrl="~/MembersOnly/MembersMenu.aspx" Text="Members Only"
+                                                            Value="Members Only">
+                                            </asp:MenuItem>
+                                        </Items>
+                                    </asp:Menu>
+                                </LoggedInTemplate>
+                                <RoleGroups>
+                                    <asp:RoleGroup Roles="Admin">
+                                        <ContentTemplate>
+                                            <asp:BulletedList runat="server" DisplayMode="HyperLink">
+                                                <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
+                                                <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
+                                                <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
+                                                <asp:ListItem Value="~/MembersOnly/MembersMenu.aspx">Members Only</asp:ListItem>
+                                                <asp:ListItem Value="~/Admin/Default.aspx">Admin</asp:ListItem>
+                                            </asp:BulletedList>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                </RoleGroups>
+                            </asp:LoginView>
+                        </div>
+                    
+                </div>
             </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> 
-                        ]<br /> &nbsp;
-                    </LoggedInTemplate>
-                </asp:LoginView>
+            <div class="content pure-u-1 pure-u-md-3-4">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
             </div>
-            <div class="clear hideSkiplink">
-                <asp:LoginView ID="LoginView1" runat="server">
-                    <AnonymousTemplate>
-                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
-    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                            <Items>
-                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                                <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                                <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
-                            </Items>
-                        </asp:Menu>
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
-                            EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                            <Items>
-                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
-                                <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
-                                <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
-                                <asp:MenuItem NavigateUrl="~/MembersOnly/MembersMenu.aspx" Text="Members Only" 
-                                    Value="Members Only"></asp:MenuItem>
-                            </Items>
-                        </asp:Menu>
-                    </LoggedInTemplate>
-                    <RoleGroups>
-                        <asp:RoleGroup Roles="Admin">
-                            <ContentTemplate>
-                                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
-                                    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                                    <Items>
-                                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
-                                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
-                                        <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
-                                        <asp:MenuItem NavigateUrl="~/MembersOnly/MembersMenu.aspx" Text="Members Only" 
-                                            Value="Members Only"></asp:MenuItem>
-                                        <asp:MenuItem NavigateUrl="~/Admin/Default.aspx" Text="Administrator" 
-                                            Value="Administrator"></asp:MenuItem>
-                                    </Items>
-                                </asp:Menu>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
-                    </RoleGroups>
-                </asp:LoginView>
+        </div> 
+        <div class="footer">
+            <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                <ul>
+                    <li>
+                        <a href="http://facebook.com/Biggsy150/" style="color: black" >FaceBook</a>
+                    </li>
+                    <li>
+                        <a href="http://twitter.com/Biggsy150/" style="color: black">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="http://github.com/enrmbigg/" style="color: black">GitHub</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="footer">
- 
-    </div>
-    </form>
-</body>
+        </form>
+    </body>
 </html>

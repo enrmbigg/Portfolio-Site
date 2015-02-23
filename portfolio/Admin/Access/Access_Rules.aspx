@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageCMS.Master" AutoEventWireup="true" CodeBehind="Access_Rules.aspx.cs" Inherits="portfolio.Admin.Access.AccessRules" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Access_Rules.aspx.cs" Inherits="portfolio.Admin.Access.AccessRules" %>
 <%@ Import Namespace="System.Web.Configuration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>

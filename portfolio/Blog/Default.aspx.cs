@@ -13,7 +13,7 @@ namespace portfolio.Blog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            FillPage();
         }
 
         private void FillPage()
@@ -26,37 +26,32 @@ namespace portfolio.Blog
             {
                 sb.Append(
                     string.Format(
-                        @"<table class='coffeeTable'>
-            <tr>
-                
-                <th rowspan='6' width='150px'><div class ='halfSize'><img runat='server' src='{2}' /></div></th>
-                <th width='50px'>Title: </td>
-                <td>{0}</td>
-            </tr>
-
-            <tr>
-                <th>Body: </th>
-                <td>{1}</td>
-            </tr>
-
-            <tr>
-                <th>Date: </th>
-                <td>{3}</td>
-            </tr>          
-            
-           </table>",
+                        @"  <section class='post'>
+                    <header class='post-header'>
+                        <h2 class='post-title'>{0}</h2>
+                        <p class='post-meta'>
+                            <a class='post-category post-category-js' href='#'>{3}</a>
+                        </p>
+                    </header>
+                    <div class='post-description'>
+                        <div class='post-images pure-g'>
+                            <div class='pure-u-1 pure-u-md-1-2'>
+                                <img alt='{0}' class='pure-img-responsive' src='{2}'>
+                                <div class='post-image-meta'>
+                                    <h3>{0}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            {1}
+                        </p>
+                    </div>
+                </section><h1 class='content-subhead'></h1>",
                         post.title, post.body, post.image, post.date));
 
                 lblOutput.Text = sb.ToString();
 
             }
-
-
-        }
-
-        protected void BulletedList1_Load(object sender, EventArgs e)
-        {
-            FillPage();
         }
     }
 }

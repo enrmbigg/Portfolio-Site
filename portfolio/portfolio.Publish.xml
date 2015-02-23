@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="myblogmb.scm.azurewebsites.net:443" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="MyBlogMB" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="MyBlogMB - Web Deploy" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="$MyBlogMB" savePWD="False" userPWD="" SelectedForPublish="True" />
+  <publishProfile publishUrl="ftp://waws-prod-bn1-005.ftp.azurewebsites.windows.net/site/wwwroot" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="MyBlogMB - FTP" publishMethod="FTP" replaceMatchingFiles="True" userName="MyBlogMB\$MyBlogMB" savePWD="False" userPWD="" SelectedForPublish="False" />
+</publishData>
