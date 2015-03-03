@@ -18,12 +18,14 @@ namespace portfolio.Blog
 
         private void FillPage()
         {
-            ArrayList postList = new ArrayList();
-            postList = ConnectionClass.GetAll();
+            var postList = ConnectionClass.GetAllPosts();
+            ArrayList commentList;
             StringBuilder sb = new StringBuilder();
 
             foreach (BlogPosts post in postList)
             {
+                commentList = ConnectionClass.GetAllComments(post.Id);
+
                 sb.Append(
                     string.Format(
                         @"  <section class='post'>
@@ -47,10 +49,14 @@ namespace portfolio.Blog
                         </p>
                     </div>
                 </section><h1 class='content-subhead'></h1>",
-                        post.title, post.body, post.image, post.date));
+                        post.Title, post.Body, post.Image, post.Date));
+                foreach (Comments comment in commentList)
+                {
+                    sb.Append(
+                        string.Format("{0}",comment.Comment));
+                }
 
                 lblOutput.Text = sb.ToString();
-
             }
         }
     }

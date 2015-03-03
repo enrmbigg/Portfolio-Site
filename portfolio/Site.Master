@@ -3,7 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head runat="server">
-        <title></title>
+        
+        <!-- Basic Page Needs -->
+	    <title>Michael Biggs - Michael Biggs, Liverpool-based .Net Developer</title>
+	    <meta name="description" content="The online portfolio of Michael Biggs, a Liverpool-based .Net Developer.">
+	    <meta name="keywords" content="Website, Development, Portfolio, Liverpool, Michael, Biggs, .Net, Yodel">
+        <meta charset="utf-8">  
+    	<meta name="author" content="Michael Biggs" />        <!-- Mobile Specific Metas -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">        <!-- CSS -->
         <link href="~/Styles/pure.css" rel="stylesheet" type="text/css"/>
         <link href="~/Styles/pure-min.css" rel="stylesheet" type="text/css"/>
         <link href="~/Styles/blog.css" rel="stylesheet" type="text/css"/>
@@ -32,28 +39,19 @@
                         <div class="pure-menu pure-menu-open">
                             <asp:LoginView ID="LoginView1" runat="server">
                                 <AnonymousTemplate>
-                                    <asp:Menu ID="NavigationMenu" runat="server"
-                                                EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical">
-                                        <Items>
-                                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                                            <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
-                                        </Items>
-                                    </asp:Menu>
+                                    <asp:BulletedList ID="BulletedList2" runat="server" DisplayMode="HyperLink">
+                                        <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
+                                        <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
+                                        <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
+                                    </asp:BulletedList>
                                 </AnonymousTemplate>
-                                
                                 <LoggedInTemplate>
-                                    <asp:Menu ID="NavigationMenu" runat="server"
-                                                EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical">
-                                        <Items>
-                                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                                            <asp:MenuItem NavigateUrl="~/Blog/Default.aspx" Text="Blog"/>
-                                            <asp:MenuItem NavigateUrl="~/MembersOnly/MembersMenu.aspx" Text="Members Only"
-                                                            Value="Members Only">
-                                            </asp:MenuItem>
-                                        </Items>
-                                    </asp:Menu>
+                                    <asp:BulletedList ID="BulletedList1" runat="server" DisplayMode="HyperLink">
+                                        <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
+                                        <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
+                                        <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
+                                        <asp:ListItem Value="~/MembersOnly/MembersMenu.aspx">Members Only</asp:ListItem>
+                                    </asp:BulletedList>
                                 </LoggedInTemplate>
                                 <RoleGroups>
                                     <asp:RoleGroup Roles="Admin">

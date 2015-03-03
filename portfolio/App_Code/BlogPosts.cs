@@ -1,28 +1,31 @@
-﻿
-    public class BlogPosts
+﻿    namespace portfolio
     {
-        public int id { get; set; }
-        public string title { get; set; }
-        public string body { get; set; }
-        public string image { get; set; }
-        public string date { get; set; }
-
-        public BlogPosts( int id, string title, string body, string image, string date)
+        public class BlogPosts
         {
-            this.id = id;
-            this.title = title;
-            this.body = body;
-            this.image = image;
-            this.date = date;
+            public int Id { get; set; }
+            public string Title { get; set; }
+            public string Body { get; set; }
+            public string Image { get; set; }
+            public string Date { get; set; }
+            public string Tag { get; set; }
+
+            public BlogPosts( int id, string title, string body, string image, string date)
+            {
+                Id = id;
+                Title = title;
+                Body = body;
+                Image = image;
+                Date = date;
+            }
+
+            public BlogPosts(string title, string body, string image, string date)
+            {
+                Title = title;
+                Body = body;
+                Image = image;
+                Date = date;
+            }
+
+
         }
-
-        public BlogPosts(string title, string body, string image, string date)
-        {
-            this.title = title;
-            this.body = body;
-            this.image = image;
-            this.date = date;
-        }
-
-
     }

@@ -14,21 +14,10 @@ namespace portfolio.Admin.Access
         {
             MembershipUserCollection allUsers = Membership.GetAllUsers();
             MembershipUserCollection filteredUsers = new MembershipUserCollection();
-            bool isActive;
-            if (active.SelectedValue == "Active")
+            var isActive = (active.SelectedValue == "Active");
+            foreach (MembershipUser user in allUsers.Cast<MembershipUser>().Where(user => user.IsApproved == isActive))
             {
-                isActive = true;
-            }
-            else
-            {
-                isActive = false;
-            }
-            foreach (MembershipUser user in allUsers)
-            {
-                if (user.IsApproved == isActive)
-                {
-                    filteredUsers.Add(user);
-                }
+                filteredUsers.Add(user);
             }
             Users.DataSource = filteredUsers;
             Users.DataBind();

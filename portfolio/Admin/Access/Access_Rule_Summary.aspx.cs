@@ -46,6 +46,7 @@ namespace portfolio.Admin.Access
         private TreeNode AddNodeAndDescendents(string byUserOrRole, DirectoryInfo folder, TreeNode parentNode)
         {
             // Add the TreeNode, displaying the folder's name and storing the full path to the folder as the value...
+            TreeNode node;
             string virtualFolderPath;
             if (parentNode == null)
             {
@@ -59,40 +60,36 @@ namespace portfolio.Admin.Access
             // Instantiate the objects that we'll use to check folder security on each tree node.
             Configuration config = WebConfigurationManager.OpenWebConfiguration(virtualFolderPath);
             SystemWebSectionGroup systemWeb = (SystemWebSectionGroup)config.GetSectionGroup("system.web");
-            AuthorizationSection section = (AuthorizationSection)systemWeb.Sections["authorization"];
+                AuthorizationSection section = (AuthorizationSection)systemWeb.Sections["authorization"];
 
-            string action;
-            if (byUserOrRole == "ByRole")
-            {
-                action = GetTheRuleForThisRole(section, virtualFolderPath);
-            }
-            else if (byUserOrRole == "ByUser")
-            {
-                action = GetTheRuleForThisUser(section, virtualFolderPath);
-            }
-            else
-            {
-                action = "";
-            }
-
-            //  This is where I wanna adjust the folder name.
-            TreeNode node = new TreeNode(folder.Name + " (" + action + ")", virtualFolderPath)
-            {
-                ImageUrl = (action.Substring(0, 5) == "ALLOW") ? "~/Images/i/greenlight.gif" : "~/Images/i/redlight.gif",
-                NavigateUrl = "access_rules.aspx?selectedFolderName=" + folder.Name
-            };
-
-            // Recurse through this folder's subfolders
-            DirectoryInfo[] subFolders = folder.GetDirectories();
-            foreach (DirectoryInfo subFolder in subFolders)
-            {
-                // You could use this filter out certain folders.
-                if (subFolder.Name != "_controls" && subFolder.Name != "App_Data")
+                string action;
+                switch (byUserOrRole)
                 {
-                    TreeNode child = AddNodeAndDescendents(byUserOrRole, subFolder, node);
+                    case "ByRole":
+                        action = GetTheRuleForThisRole(section, virtualFolderPath);
+                        break;
+                    case "ByUser":
+                        action = GetTheRuleForThisUser(section, virtualFolderPath);
+                        break;
+                    default:
+                        action = "";
+                        break;
+                }
+
+                //  This is where I wanna adjust the folder name.
+                node = new TreeNode(folder.Name + " (" + action + ")", virtualFolderPath)
+                {
+                    ImageUrl = (action.Substring(0, 5) == "ALLOW") ? "~/Images/i/greenlight.gif" : "~/Images/i/redlight.gif",
+                    NavigateUrl = "access_rules.aspx?selectedFolderName=" + folder.Name
+                };
+
+                // Recurse through this folder's subfolders
+                DirectoryInfo[] subFolders = folder.GetDirectories();
+                foreach (TreeNode child in from subFolder in subFolders where subFolder.Name != "App_Code" && subFolder.Name != "App_Data" select AddNodeAndDescendents(byUserOrRole, subFolder, node))
+                {
                     node.ChildNodes.Add(child);
                 }
-            }
+                
             return node; // Return the new TreeNode
         }
 
@@ -100,14 +97,15 @@ namespace portfolio.Admin.Access
         {
             foreach (AuthorizationRule rule in section.Rules)
             {
-                if (rule.Users.Cast<string>().Any(user => user == "*"))
+                if (rule.Users.Cast<string>().All(user => user != "*"))
                 {
+                    foreach (string role in rule.Roles.Cast<string>().Where(role => role == _selectedRole))
+                    {
+                        return rule.Action.ToString().ToUpper() + ": Role=" + role;
+                    }
+                }
+                else
                     return rule.Action.ToString().ToUpper() + ": All Users";
-                }
-                foreach (string role in rule.Roles.Cast<string>().Where(role => role == _selectedRole))
-                {
-                    return rule.Action.ToString().ToUpper() + ": Role=" + role;
-                }
             }
             return "Allow";
         }
@@ -119,23 +117,15 @@ namespace portfolio.Admin.Access
                 foreach (string user in rule.Users)
                 {
                     if (user == "*")
-                    {
                         return rule.Action.ToString().ToUpper() + ": All Users";
-                    }
-                    else if (user == _selectedUser)
-                    {
+                    if (user == _selectedUser)
                         return rule.Action.ToString().ToUpper() + ": User=" + user;
-                    }
                 }
 
                 // Don't forget that users might belong to some roles!
-                foreach (string role in rule.Roles)
-                {
-                    if (RoleList.IsUserInRole(_selectedUser, role))
-                    {
-                        return rule.Action.ToString().ToUpper() + ": Role=" + role;
-                    }
-                }
+                foreach (
+                    string role in rule.Roles.Cast<string>().Where(role => RoleList.IsUserInRole(_selectedUser, role)))
+                    return rule.Action.ToString().ToUpper() + ": Role=" + role;
             }
             return "ALLOW";
         }

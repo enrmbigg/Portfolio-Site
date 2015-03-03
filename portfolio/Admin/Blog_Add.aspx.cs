@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,9 +25,8 @@ namespace portfolio.Admin
             //Get all filenames and add them to an arraylist
             ArrayList imageList = new ArrayList();
 
-            foreach (string image in images)
+            foreach (var imageName in images.Select(image => image.Substring(image.LastIndexOf(@"\", StringComparison.Ordinal) + 1)))
             {
-                string imageName = image.Substring(image.LastIndexOf(@"\") + 1);
                 imageList.Add(imageName);
             }
 
@@ -44,7 +44,7 @@ namespace portfolio.Admin
         {
             try
             {
-                string filename = Path.GetFileName(FileUpload1.FileName);
+                var filename = Path.GetFileName(FileUpload1.FileName);
                 FileUpload1.SaveAs(Server.MapPath("~/Images/Blog/") + filename);
                 lblResult.Text = "Image " + filename + " succesfully uploaded!";
                 Page_Load(sender, e);
@@ -62,7 +62,7 @@ namespace portfolio.Admin
                 string title = txtTitle.Text;
                 string body = txtBody.Text;
                 string image = "../Images/Blog/" + ddlImage.SelectedValue;
-                string date = DateTime.Now.ToString();
+                string date = DateTime.Now.ToString(CultureInfo.InvariantCulture);
 
                 BlogPosts blog = new BlogPosts(title, body, image, date);
                 ConnectionClass.AddBlog(blog);
