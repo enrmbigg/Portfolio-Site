@@ -47,24 +47,26 @@ namespace portfolio.Admin.Access
             // Populate the tree based on the subfolders of the specified VirtualImageRoot
             DirectoryInfo rootFolder = new DirectoryInfo(Server.MapPath(VirtualImageRoot));
             TreeNode root = AddNodeAndDescendents(rootFolder, null);
-            FolderTree.Nodes.Add(root);
-            FolderTree.SelectedNode.ImageUrl = "~/Images/i/folder.gif";
+            FolderTree.Nodes.Add(root);       
         }
 
         private TreeNode AddNodeAndDescendents(DirectoryInfo folder, TreeNode parentNode)
         {
             // Add the TreeNode, displaying the folder's name and storing the full path to the folder as the value...
-
-            var virtualFolderPath = parentNode == null ? VirtualImageRoot : parentNode.Value + folder.Name + "/";
+            string virtualFolderPath = parentNode == null ? VirtualImageRoot : parentNode.Value + folder.Name + "/";
 
             TreeNode node = new TreeNode(folder.Name, virtualFolderPath);
             node.Selected = (folder.Name == _selectedFolderName);
 
             // Recurse through this folder's subfolders
             DirectoryInfo[] subFolders = folder.GetDirectories();
-            foreach (TreeNode child in from subFolder in subFolders where subFolder.Name != "App_Code" && subFolder.Name != "App_Data" && subFolder.Name != "obj" select AddNodeAndDescendents(subFolder, node))
+            foreach (DirectoryInfo subFolder in subFolders)
             {
-                node.ChildNodes.Add(child);
+                if (subFolder.Name != "App_Code" && subFolder.Name != "App_Data" && subFolder.Name != "obj")
+                {
+                    TreeNode child = AddNodeAndDescendents(subFolder, node);
+                    node.ChildNodes.Add(child);
+                }
             }
             return node; // Return the new TreeNode
         }
@@ -83,7 +85,7 @@ namespace portfolio.Admin.Access
             RuleCreationError.Visible = false;
 
             ResetFolderImageUrls(FolderTree.Nodes[0]); // Restore previously selected folder's ImageUrl.
-            FolderTree.SelectedNode.ImageUrl = "~/Images/i/folder.gif"; // Set the newly selected folder's ImageUrl.
+            FolderTree.SelectedNode.ImageUrl = "~/Images/i/target.gif"; // Set the newly selected folder's ImageUrl.
         }
 
         private static void ResetFolderImageUrls(TreeNode parentNode)

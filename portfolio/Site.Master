@@ -2,94 +2,95 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-    <head runat="server">
-        
-        <!-- Basic Page Needs -->
-	    <title>Michael Biggs - Michael Biggs, Liverpool-based .Net Developer</title>
-	    <meta name="description" content="The online portfolio of Michael Biggs, a Liverpool-based .Net Developer.">
-	    <meta name="keywords" content="Website, Development, Portfolio, Liverpool, Michael, Biggs, .Net, Yodel">
-        <meta charset="utf-8">  
-    	<meta name="author" content="Michael Biggs" />        <!-- Mobile Specific Metas -->
-	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">        <!-- CSS -->
-        <link href="~/Styles/pure.css" rel="stylesheet" type="text/css"/>
-        <link href="~/Styles/pure-min.css" rel="stylesheet" type="text/css"/>
-        <link href="~/Styles/blog.css" rel="stylesheet" type="text/css"/>
-        <link href="~/Styles/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
-        <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
-    </head>
-    <body>
-        <form id="Form1" runat="server">
-        <div id="layout" class="pure-g">
-            <div class="sidebar pure-u-1 pure-u-md-1-4">
-                <div class="header">
-                    
-                        <h1 class="brand-title">My Blog</h1>
-                        <h2 class="brand-tagline"></h2>
-                        <br/>
-                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                            <AnonymousTemplate>
-                                [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
-                            </AnonymousTemplate>
-                            <LoggedInTemplate>
-                                Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                                [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/>]
-                                <br/> &nbsp;
-                            </LoggedInTemplate>
-                        </asp:LoginView>
-                        <div class="pure-menu pure-menu-open">
-                            <asp:LoginView ID="LoginView1" runat="server">
-                                <AnonymousTemplate>
-                                    <asp:BulletedList ID="BulletedList2" runat="server" DisplayMode="HyperLink">
-                                        <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
-                                        <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
-                                        <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
-                                    </asp:BulletedList>
-                                </AnonymousTemplate>
-                                <LoggedInTemplate>
-                                    <asp:BulletedList ID="BulletedList1" runat="server" DisplayMode="HyperLink">
+<head runat="server">
+
+    <!-- Basic Page Needs -->
+    <title>Michael Biggs - Michael Biggs, Liverpool-based .Net Developer</title>
+    <meta name="description" content="The online portfolio of Michael Biggs, a Liverpool-based .Net Developer.">
+    <meta name="keywords" content="Website, Development, Portfolio, Liverpool, Michael, Biggs, .Net, Yodel">
+    <meta charset="utf-8">
+    <meta name="author" content="Michael Biggs"/>
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS -->
+    <link href="~/Styles/pure.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Styles/pure-min.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Styles/blog.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Styles/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Styles/csmb.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
+</head>
+<body>
+<form id="Form1" runat="server">
+    <div id="layout" class="pure-g">
+        <div class="sidebar pure-u-1 pure-u-md-1-4">
+            <div class="header">
+
+                <h1 class="brand-title">My Blog</h1>
+                <h2 class="brand-tagline"></h2>
+                <br/>
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/>]
+                        <br/> &nbsp;
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <div class="pure-menu pure-menu-open">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                            <asp:BulletedList ID="BulletedList2" runat="server" DisplayMode="HyperLink">
+                                <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
+                                <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
+                                <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
+                            </asp:BulletedList>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <asp:BulletedList ID="BulletedList1" runat="server" DisplayMode="HyperLink">
+                                <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
+                                <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
+                                <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
+                                <asp:ListItem Value="~/MembersOnly/MembersMenu.aspx">Members Only</asp:ListItem>
+                            </asp:BulletedList>
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Admin">
+                                <ContentTemplate>
+                                    <asp:BulletedList runat="server" DisplayMode="HyperLink">
                                         <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
                                         <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
                                         <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
                                         <asp:ListItem Value="~/MembersOnly/MembersMenu.aspx">Members Only</asp:ListItem>
+                                        <asp:ListItem Value="~/Admin/Default.aspx">Admin</asp:ListItem>
                                     </asp:BulletedList>
-                                </LoggedInTemplate>
-                                <RoleGroups>
-                                    <asp:RoleGroup Roles="Admin">
-                                        <ContentTemplate>
-                                            <asp:BulletedList runat="server" DisplayMode="HyperLink">
-                                                <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
-                                                <asp:ListItem Value="~/About.aspx">About</asp:ListItem>
-                                                <asp:ListItem Value="~/Blog/Default.aspx">Blog</asp:ListItem>
-                                                <asp:ListItem Value="~/MembersOnly/MembersMenu.aspx">Members Only</asp:ListItem>
-                                                <asp:ListItem Value="~/Admin/Default.aspx">Admin</asp:ListItem>
-                                            </asp:BulletedList>
-                                        </ContentTemplate>
-                                    </asp:RoleGroup>
-                                </RoleGroups>
-                            </asp:LoginView>
-                        </div>
-                    
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
                 </div>
-            </div>
-            <div class="content pure-u-1 pure-u-md-3-4">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-            </div>
-        </div> 
-        <div class="footer">
-            <div class="pure-menu pure-menu-horizontal pure-menu-open">
-                <ul>
-                    <li>
-                        <a href="http://facebook.com/Biggsy150/" style="color: black" >FaceBook</a>
-                    </li>
-                    <li>
-                        <a href="http://twitter.com/Biggsy150/" style="color: black">Twitter</a>
-                    </li>
-                    <li>
-                        <a href="http://github.com/enrmbigg/" style="color: black">GitHub</a>
-                    </li>
-                </ul>
+
             </div>
         </div>
-        </form>
-    </body>
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+    </div>
+    <footer>
+        <div class="socialContainer">
+            <span class="social">
+                <a href="https://github.com/enrmbigg" class="csmb csmb-round csmb-border github"></a>
+                <a href="https://www.facebook.com/Biggsy150" class="csmb csmb-round csmb-border facebook"></a>
+                <a href="https://twitter.com/Biggsy150" class="csmb csmb-round csmb-border twitter"></a>
+                <a href="https://plus.google.com/112214025207847173468/about" class="csmb csmb-round csmb-border gplus"></a>
+                <a href="http://uk.linkedin.com/in/Biggsy150" class="csmb csmb-round csmb-border linkedin"></a>
+            </span>
+        </div>
+    </footer>
+</form>
+</body>
 </html>

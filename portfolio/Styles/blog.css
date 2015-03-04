@@ -1,4 +1,13 @@
 
+footer span.social {
+margin-top: -4px;
+float: right;
+padding-bottom: 6px;
+}
+.socialContainer {
+width: 310px;
+margin: 0 auto;
+}
 
 .pure-menu a, .pure-menu .pure-menu-can-have-children>li:after {
 color: #eeeeee;

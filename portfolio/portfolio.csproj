@@ -81,55 +81,24 @@
     </Content>
     <Content Include="App_Data\BlogPosts.sdf" />
     <Content Include="Blog\Default.aspx" />
+    <Content Include="Images\icon-sprite-x2.png" />
+    <Content Include="Images\icon-sprite.png" />
     <Content Include="Images\i\folder.gif" />
     <Content Include="Images\i\greenlight.gif" />
     <Content Include="Images\i\redlight.gif" />
     <Content Include="Images\i\target.gif" />
     <Content Include="Images\i\yellowlight.gif" />
     <Content Include="MembersOnly\MembersMenu.aspx" />
-    <Content Include="Styles\base-context-min.css" />
-    <Content Include="Styles\base-context.css" />
-    <Content Include="Styles\base-min.css" />
-    <Content Include="Styles\base.css" />
     <Content Include="Styles\blog.css" />
-    <Content Include="Styles\buttons-core-min.css" />
-    <Content Include="Styles\buttons-core.css" />
-    <Content Include="Styles\buttons-min.css" />
-    <Content Include="Styles\buttons.css" />
-    <Content Include="Styles\forms-min.css" />
-    <Content Include="Styles\forms-nr-min.css" />
-    <Content Include="Styles\forms-nr.css" />
-    <Content Include="Styles\forms.css" />
-    <Content Include="Styles\grids-core-min.css" />
-    <Content Include="Styles\grids-core.css" />
-    <Content Include="Styles\grids-min.css" />
+    <Content Include="Styles\csmb.css" />
     <Content Include="Styles\grids-responsive-min.css" />
-    <Content Include="Styles\grids-responsive-old-ie-min.css" />
-    <Content Include="Styles\grids-responsive-old-ie.css" />
-    <Content Include="Styles\grids-responsive.css" />
-    <Content Include="Styles\grids-units-min.css" />
-    <Content Include="Styles\grids-units.css" />
-    <Content Include="Styles\grids.css" />
-    <Content Include="Styles\menus-core-min.css" />
-    <Content Include="Styles\menus-core.css" />
-    <Content Include="Styles\menus-min.css" />
-    <Content Include="Styles\menus-nr-min.css" />
-    <Content Include="Styles\menus-nr.css" />
-    <Content Include="Styles\menus-paginator-min.css" />
-    <Content Include="Styles\menus-paginator.css" />
-    <Content Include="Styles\menus.css" />
     <Content Include="Styles\pure-min.css" />
-    <Content Include="Styles\pure-nr-min.css" />
-    <Content Include="Styles\pure-nr.css" />
     <Content Include="Styles\pure.css" />
-    <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Styles\tables-min.css" />
-    <Content Include="Styles\tables.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -334,7 +303,6 @@
   <ItemGroup>
     <None Include="Images\i\Thumbs.db" />
     <None Include="Styles\bower.json" />
-    <None Include="Styles\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
