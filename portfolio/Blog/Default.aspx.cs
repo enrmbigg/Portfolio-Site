@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Net.Mime;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,20 +20,19 @@ namespace portfolio.Blog
         private void FillPage()
         {
             var postList = ConnectionClass.GetAllPosts();
-            ArrayList commentList;
             StringBuilder sb = new StringBuilder();
-
             foreach (BlogPosts post in postList)
             {
-                commentList = ConnectionClass.GetAllComments(post.Id);
-
                 sb.Append(
                     string.Format(
                         @"  <section class='post'>
                     <header class='post-header'>
-                        <h2 class='post-title'>{0}</h2>
+                        
+                        <h3><a class='post-title href='#'>{0}</a></h3>
+
                         <p class='post-meta'>
-                            <a class='post-category post-category-js' href='#'>{3}</a>
+                            <a class='post-category post-category-design' href='#'>{3}</a>
+                            <a class='post-category post-category-js' href='#'>{4}</a>
                         </p>
                     </header>
                     <div class='post-description'>
@@ -49,13 +49,7 @@ namespace portfolio.Blog
                         </p>
                     </div>
                 </section><h1 class='content-subhead'></h1>",
-                        post.Title, post.Body, post.Image, post.Date));
-                foreach (Comments comment in commentList)
-                {
-                    sb.Append(
-                        string.Format("{0}",comment.Comment));
-                }
-
+                        post.Title, post.Body, "../Images/Blog/" + post.Image, post.Tag, post.Date));
                 lblOutput.Text = sb.ToString();
             }
         }

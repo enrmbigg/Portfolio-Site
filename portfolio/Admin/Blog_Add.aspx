@@ -29,6 +29,12 @@
         </td>
     </tr>
     <tr>
+        <td class="style2">Tag</td>
+        <td class="style1">
+            <asp:TextBox ID="txtTag" runat="server" Height="189px" Width="700px"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
         <td class="style2">Image</td>
         <td class="style1">
             <asp:DropDownList ID="ddlImage" runat="server" Width="276px">

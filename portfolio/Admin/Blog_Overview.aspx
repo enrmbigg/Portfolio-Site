@@ -4,6 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h3>Availble blogs</h3>
     <p><asp:LinkButton ID="BlogAdd" runat="server" PostBackUrl="~/Admin/Blog_Add.aspx">Add Post</asp:LinkButton></p>
+    
+    
     <p>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
             AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" 

@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace portfolio.Admin
 {
@@ -46,8 +48,7 @@ namespace portfolio.Admin
             {
                 var filename = Path.GetFileName(FileUpload1.FileName);
                 FileUpload1.SaveAs(Server.MapPath("~/Images/Blog/") + filename);
-                lblResult.Text = "Image " + filename + " succesfully uploaded!";
-                Page_Load(sender, e);
+                lblResult.Text = "Image " + filename + " Succesfully Uploaded!";
             }
             catch (Exception)
             {
@@ -61,11 +62,13 @@ namespace portfolio.Admin
             {
                 string title = txtTitle.Text;
                 string body = txtBody.Text;
-                string image = "../Images/Blog/" + ddlImage.SelectedValue;
+                string image = ddlImage.SelectedValue;
                 string date = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                string tag = txtTag.Text;
 
-                BlogPosts blog = new BlogPosts(title, body, image, date);
+                BlogPosts blog = new BlogPosts(title, body, image, date, tag);
                 ConnectionClass.AddBlog(blog);
+                BlogPosts post  = ConnectionClass.GetPostByTitle(title,"DESC");
                 lblResult.Text = "Upload succesful!";
                 ClearTextFields();
             }

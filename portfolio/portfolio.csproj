@@ -257,7 +257,6 @@
     </Compile>
     <Compile Include="App_Code\BlogPosts.cs" />
     <Content Include="App_Code\Class1.cs" />
-    <Compile Include="App_Code\Comments.cs" />
     <Compile Include="App_Code\ConnectionClass.cs" />
     <Compile Include="App_Code\MessageStrings.cs" />
     <Compile Include="Blog\Default.aspx.cs">
