@@ -9,6 +9,6 @@
     </h2>
     <asp:Label ID="lblHello" runat="server" Text="Label"></asp:Label>
     <p>
-        Put content here.
+        <asp:Label ID="lblAbout" runat="server" Text="Label"></asp:Label>
     </p>
 </asp:Content>

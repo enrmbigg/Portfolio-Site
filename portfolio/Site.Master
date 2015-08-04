@@ -6,9 +6,9 @@
 
     <!-- Basic Page Needs -->
     <title>Michael Biggs - Michael Biggs, Liverpool-based .Net Developer</title>
-    <meta name="description" content="The online portfolio of Michael Biggs, a Liverpool-based .Net Developer.">
-    <meta name="keywords" content="Website, Development, Portfolio, Liverpool, Michael, Biggs, .Net, Yodel">
-    <meta charset="utf-8">
+    <meta name="description" content="The online portfolio of Michael Biggs, a Liverpool-based .Net Developer."/>
+    <meta name="keywords" content="Website, Development, Portfolio, Liverpool, Michael, Biggs, .Net, Yodel"/>
+    <meta charset="utf-8"/>
     <meta name="author" content="Michael Biggs"/>
 
     <!-- Mobile Specific Metas -->
@@ -19,7 +19,7 @@
     <link href="~/Styles/pure-min.css" rel="stylesheet" type="text/css"/>
     <link href="~/Styles/blog.css" rel="stylesheet" type="text/css"/>
     <link href="~/Styles/grids-responsive-min.css" rel="stylesheet" type="text/css"/>
-    <link href="~/Styles/csmb.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/csmb.css" rel="stylesheet" type="text/css"/>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"/>
 </head>
 <body>
@@ -72,7 +72,7 @@
                             </asp:RoleGroup>
                         </RoleGroups>
                     </asp:LoginView>
-                </div>  
+                </div>
             </div>
         </div>
         <div class="content pure-u-1 pure-u-md-3-4">

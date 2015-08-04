@@ -12,6 +12,7 @@ namespace portfolio
         protected void Page_Load(object sender, EventArgs e)
         {
             lblHello.Text = MessageStrings.WELCOMEMESSAGE;
+            lblAbout.Text = MessageStrings.ABOUTMYSELF;
         }
     }
 }
